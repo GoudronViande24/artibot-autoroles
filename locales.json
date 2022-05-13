@@ -26,8 +26,8 @@
 			"fr": "<liste de boutons à créer (suivant le format text:mode:id) (ex.: Rôle d'exemple:toggle:796899707045543946, Rôle en ajout seulement:addonly:796899707045543946)>"
 		},
 
-		"Configuration file not found or invalid.": {
-			"fr": "Le fichier de configuration est introuvable ou est invalide."
+		"Configuration not found or invalid.": {
+			"fr": "La configuration est introuvable ou est invalide."
 		},
 
 		"[[0]] is not valid.": {
@@ -42,8 +42,8 @@
 			"fr": "Vous devez être un administrateur pour utiliser cette commande."
 		},
 
-		"Configuration file not found or invalid. The createrolepicker command is enabled by default.": {
-			"fr": "Le fichier de configuration est introuvable ou est invalide. La commande createrolepicker est activée par défaut."
+		"Configuration not found or invalid. The createrolepicker command is enabled by default.": {
+			"fr": "La configuration est introuvable ou est invalide. La commande createrolepicker est activée par défaut."
 		},
 
 		"This command is disabled.": {
