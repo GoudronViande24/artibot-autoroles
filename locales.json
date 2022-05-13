@@ -26,8 +26,8 @@
 			"fr": "<liste de boutons à créer (suivant le format text:mode:id) (ex.: Rôle d'exemple:toggle:796899707045543946, Rôle en ajout seulement:addonly:796899707045543946)>"
 		},
 
-		"Configuration not found or invalid.": {
-			"fr": "La configuration est introuvable ou est invalide."
+		"Configuration not found or invalid. Reaction roles deactivated.": {
+			"fr": "La configuration est introuvable ou est invalide. Les rôles par réaction sont désactivés."
 		},
 
 		"[[0]] is not valid.": {

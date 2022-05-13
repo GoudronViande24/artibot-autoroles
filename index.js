@@ -39,7 +39,13 @@ export default ({ config: { lang } }) => {
 		parts: [
 			new Global({
 				id: "reactionrole",
-				mainFunction: ({ client, config }) => new ReactionRole(client, config.autoroles.reactionRoles)
+				mainFunction: ({ client, config, log }) => {
+					try {
+						new ReactionRole(client, config.autoroles.reactionRoles);
+					} catch {
+						log("Auto Roles", localizer._("Configuration not found or invalid. Reaction roles deactivated."), "log");
+					}
+				}
 			}),
 			new Button({
 				id: "autorole-*",
