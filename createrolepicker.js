@@ -24,15 +24,6 @@ export async function createRolePickerInit({ log, config }) {
 	}
 }
 
-channel.send({
-	embeds: [
-		createEmbed()
-			.setColor("RED")
-			.setTitle("Autorole")
-			.setDescription(reason)
-	]
-});
-
 /**
  * Command to create a role picker
  * @author GoudronViande24
