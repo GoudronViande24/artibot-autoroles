@@ -1,5 +1,5 @@
 import Artibot from "artibot";
-import { MessageActionRow, MessageButton, TextChannel, Permissions, Message } from "discord.js";
+import { MessageActionRow, MessageButton, Permissions, Message } from "discord.js";
 import { localizer } from "./index.js";
 
 /** @type {Boolean} */
