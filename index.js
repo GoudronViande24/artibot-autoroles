@@ -2,7 +2,7 @@ import Artibot, { Button, Command, Global, Module } from "artibot";
 import Localizer from "artibot-localizer";
 import { CommandInteraction, Intents } from "discord.js";
 import { ReactionRole } from "discordjs-reaction-role";
-import { createRolePicker, createRolePickerInit } from "./createrolepicker.js";
+import { createRolePicker, createRolePickerInit } from "./createRolePicker.js";
 
 import path from "path";
 import { fileURLToPath } from "url";
