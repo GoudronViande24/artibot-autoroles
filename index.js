@@ -1,7 +1,7 @@
 import Artibot, { Button, Command, Module } from "artibot";
 import Localizer from "artibot-localizer";
 import { CommandInteraction } from "discord.js";
-import { createRolePicker, createRolePickerInit } from "./createRolePicker.js";
+import { createRolePicker } from "./createRolePicker.js";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -43,7 +43,6 @@ export default ({ config: { lang } }) => {
 				usage: localizer._("<list of buttons to create (following the text:mode:id format) (ex.: Sample role:toggle:796899707045543946, Add-only role:addonly:796899707045543946)>"),
 				guildOnly: true,
 				requiresArgs: true,
-				initFunction: createRolePickerInit,
 				mainFunction: createRolePicker
 			})
 		]
