@@ -44,11 +44,14 @@ export async function createRolePicker(message, args, { config, createEmbed }) {
 		const settings = arg.split(":");
 
 		if (settings.length != 3 || !message.guild.roles.cache.get(settings[2]) || !allowedModes.includes(settings[1])) {
-			return sendErrorMessage(
-				message.channel,
-				config,
-				localizer.__("[[0]] is not valid.", { placeholders: [arg] })
-			);
+			return await message.reply({
+				embeds: [
+					createEmbed()
+						.setTitle("Autorole")
+						.setColor("Red")
+						.setDescription(localizer.__("[[0]] is not valid.", { placeholders: [arg] }))
+				]
+			});
 		}
 
 		row.addComponents(
