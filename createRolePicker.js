@@ -40,7 +40,7 @@ export async function createRolePicker(message, args, { config, createEmbed }) {
 	const row = new ActionRowBuilder();
 	args = args.join(" ").split(", ");
 
-	args.slice(0, 5).forEach(arg => {
+	for (const arg of args.slice(0, 5)) {
 		const settings = arg.split(":");
 
 		if (settings.length != 3 || !message.guild.roles.cache.get(settings[2]) || !allowedModes.includes(settings[1])) {
@@ -60,7 +60,7 @@ export async function createRolePicker(message, args, { config, createEmbed }) {
 				.setStyle(ButtonStyle.Primary)
 				.setCustomId(`autorole-${settings[1]}-${settings[2]}`)
 		);
-	});
+	}
 
 	await message.channel.send({
 		components: [row]
