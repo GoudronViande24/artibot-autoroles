@@ -1,7 +1,6 @@
-import Artibot, { Button, Command, Global, Module } from "artibot";
+import Artibot, { Button, Command, Module } from "artibot";
 import Localizer from "artibot-localizer";
-import { CommandInteraction, GatewayIntentBits } from "discord.js";
-import { ReactionRole } from "discordjs-reaction-role";
+import { CommandInteraction } from "discord.js";
 import { createRolePicker, createRolePickerInit } from "./createRolePicker.js";
 
 import path from "path";
@@ -16,7 +15,6 @@ const { version } = require('./package.json');
 
 /**
  * Autoroles module for Artibot
- * Partly based on Node.js module discordjs-reaction-role
  * @author GoudronViande24
  * @param {Artibot} artibot
  * @returns {Module}
@@ -33,20 +31,7 @@ export default ({ config: { lang } }) => {
 			"fr"
 		],
 		repo: "GoudronViande24/artibot-autoroles",
-		intents: [
-			GatewayIntentBits.GuildMessageReactions
-		],
 		parts: [
-			new Global({
-				id: "reactionrole",
-				mainFunction: ({ client, config, log }) => {
-					try {
-						new ReactionRole(client, config.autoroles.reactionRoles);
-					} catch {
-						log("Auto Roles", localizer._("Configuration not found or invalid. Reaction roles deactivated."), "log");
-					}
-				}
-			}),
 			new Button({
 				id: "autorole-*",
 				mainFunction: autoroleButton

@@ -1,28 +1,12 @@
 import Artibot from "artibot";
-import { ActionRowBuilder, ButtonBuilder, PermissionsBitField, Message } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, PermissionsBitField, Message, ButtonStyle } from "discord.js";
 import { localizer } from "./index.js";
-
-/** @type {Boolean} */
-let enabled;
 
 const allowedModes = [
 	"toggle",
 	"addonly",
 	"removeonly"
 ];
-
-/**
- * Initialize createRolePicker command
- * @param {Artibot} artibot 
- */
-export async function createRolePickerInit({ log, config }) {
-	try {
-		enabled = config.autoroles.allowNewPickers;
-	} catch {
-		enabled = true;
-		log("Auto roles", localizer._("Configuration not found or invalid. The createrolepicker command is enabled by default."), "log");
-	}
-}
 
 /**
  * Command to create a role picker
@@ -33,16 +17,6 @@ export async function createRolePickerInit({ log, config }) {
  * @param {Artibot} artibot
  */
 export async function createRolePicker(message, args, { config, createEmbed }) {
-	// Check if command is enabled
-	if (!enabled) return message.channel.send({
-		embeds: [
-			createEmbed()
-				.setColor("Red")
-				.setTitle("Autorole")
-				.setDescription(localizer._("This command is disabled."))
-		]
-	});
-
 	// Check if user has admin permissions
 	if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return await message.channel.send({
 		embeds: [
@@ -80,7 +54,7 @@ export async function createRolePicker(message, args, { config, createEmbed }) {
 		row.addComponents(
 			new ButtonBuilder()
 				.setLabel(settings[0])
-				.setStyle("PRIMARY")
+				.setStyle(ButtonStyle.Primary)
 				.setCustomId(`autorole-${settings[1]}-${settings[2]}`)
 		);
 	});

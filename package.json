@@ -1,6 +1,6 @@
 {
   "name": "artibot-autoroles",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Allow your members to get roles automatically",
   "main": "index.js",
   "type": "module",
@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/GoudronViande24/artibot-autoroles#readme",
   "dependencies": {
-    "artibot": "^4.0.0",
-    "discordjs-reaction-role": "^3.0.0"
+    "artibot": "^4.0.0"
   }
 }
