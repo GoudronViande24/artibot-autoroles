@@ -1,5 +1,5 @@
 import Artibot from "artibot";
-import { MessageActionRow, MessageButton, Permissions, Message } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, PermissionsBitField, Message } from "discord.js";
 import { localizer } from "./index.js";
 
 /** @type {Boolean} */
@@ -37,33 +37,33 @@ export async function createRolePicker(message, args, { config, createEmbed }) {
 	if (!enabled) return message.channel.send({
 		embeds: [
 			createEmbed()
-				.setColor("RED")
+				.setColor("Red")
 				.setTitle("Autorole")
 				.setDescription(localizer._("This command is disabled."))
 		]
 	});
 
 	// Check if user has admin permissions
-	if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) return message.channel.send({
+	if (!message.member.permissions.has(PermissionsBitField.Flags.Administrator)) return await message.channel.send({
 		embeds: [
 			createEmbed()
-				.setColor("RED")
+				.setColor("Red")
 				.setTitle("Autorole")
 				.setDescription(localizer._("You must be an administrator to use this command."))
 		]
 	});
 
 	// Check if there is an argument
-	if (!args.length) return message.channel.send({
+	if (!args.length) return await message.channel.send({
 		embeds: [
 			createEmbed()
-				.setColor("RED")
+				.setColor("Red")
 				.setTitle("Autorole")
 				.setDescription(localizer._("No arguments! Use the `help createrolepicker` command to learn more."))
 		]
 	});
 
-	const row = new MessageActionRow();
+	const row = new ActionRowBuilder();
 	args = args.join(" ").split(", ");
 
 	args.slice(0, 5).forEach(arg => {
@@ -78,7 +78,7 @@ export async function createRolePicker(message, args, { config, createEmbed }) {
 		}
 
 		row.addComponents(
-			new MessageButton()
+			new ButtonBuilder()
 				.setLabel(settings[0])
 				.setStyle("PRIMARY")
 				.setCustomId(`autorole-${settings[1]}-${settings[2]}`)

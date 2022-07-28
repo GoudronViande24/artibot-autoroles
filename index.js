@@ -1,6 +1,6 @@
 import Artibot, { Button, Command, Global, Module } from "artibot";
 import Localizer from "artibot-localizer";
-import { CommandInteraction, Intents } from "discord.js";
+import { CommandInteraction, GatewayIntentBits } from "discord.js";
 import { ReactionRole } from "discordjs-reaction-role";
 import { createRolePicker, createRolePickerInit } from "./createRolePicker.js";
 
@@ -34,7 +34,7 @@ export default ({ config: { lang } }) => {
 		],
 		repo: "GoudronViande24/artibot-autoroles",
 		intents: [
-			Intents.FLAGS.GUILD_MESSAGE_REACTIONS
+			GatewayIntentBits.GuildMessageReactions
 		],
 		parts: [
 			new Global({

@@ -3,7 +3,7 @@
   "version": "2.1.1",
   "description": "Allow your members to get roles automatically",
   "main": "index.js",
-	"type": "module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/GoudronViande24/artibot-autoroles#readme",
   "dependencies": {
-    "artibot": "^3.0.6",
+    "artibot": "^4.0.0",
     "discordjs-reaction-role": "^3.0.0"
   }
 }
