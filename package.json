@@ -1,6 +1,6 @@
 {
   "name": "artibot-autoroles",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Allow your members to get roles automatically",
   "main": "index.js",
   "type": "module",

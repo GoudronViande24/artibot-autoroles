@@ -31,6 +31,7 @@ export default ({ config: { lang } }) => {
 			"fr"
 		],
 		repo: "GoudronViande24/artibot-autoroles",
+		packageName: "artibot-autoroles",
 		parts: [
 			new Button({
 				id: "autorole-*",
