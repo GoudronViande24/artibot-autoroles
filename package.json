@@ -1,11 +1,19 @@
 {
   "name": "artibot-autoroles",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Allow your members to get roles automatically",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "LICENSE",
+    "locales.json"
+  ],
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -28,6 +36,9 @@
   },
   "homepage": "https://github.com/GoudronViande24/artibot-autoroles#readme",
   "dependencies": {
-    "artibot": "^4.0.0"
+    "artibot": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.3"
   }
 }

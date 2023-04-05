@@ -48,6 +48,10 @@
 
 		"This command is disabled.": {
 			"fr": "Cette commande est désactivée."
+		},
+
+		"Role not found!": {
+			"fr": "Rôle introuvable!"
 		}
 	}
 }

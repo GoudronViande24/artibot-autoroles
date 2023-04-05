@@ -1,6 +1,6 @@
 import Artibot, { Button, Command, Module } from "artibot";
 import Localizer from "artibot-localizer";
-import { CommandInteraction } from "discord.js";
+import { ButtonInteraction, EmbedBuilder, Role } from "discord.js";
 import { createRolePicker } from "./createRolePicker.js";
 
 import path from "path";
@@ -11,15 +11,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const require = createRequire(import.meta.url);
-const { version } = require('./package.json');
+const { version } = require('../package.json');
 
 /**
  * Autoroles module for Artibot
  * @author GoudronViande24
- * @param {Artibot} artibot
- * @returns {Module}
  */
-export default ({ config: { lang } }) => {
+export default ({ config: { lang } }: Artibot): Module => {
 	localizer.setLocale(lang);
 
 	return new Module({
@@ -51,22 +49,22 @@ export default ({ config: { lang } }) => {
 }
 
 export const localizer = new Localizer({
-	filePath: path.join(__dirname, "locales.json")
+	filePath: path.join(__dirname, "../locales.json")
 });
 
 /**
  * Give or remove role to user when button clicked
  * @since 2.0.0
- * @param {CommandInteraction} interaction 
- * @param {Artibot} artibot
  */
-async function autoroleButton(interaction, { createEmbed }) {
-	const roleId = interaction.customId.split("-")[2],
-		mode = interaction.customId.split("-")[1];
+async function autoroleButton(interaction: ButtonInteraction<"cached">, { createEmbed }: Artibot): Promise<void> {
+	const roleId: string = interaction.customId.split("-")[2];
+	const mode: string = interaction.customId.split("-")[1];
 
-	const embed = createEmbed().setTitle("Autorole");
+	const embed: EmbedBuilder = createEmbed().setTitle("Autorole");
 
-	const role = await interaction.guild.roles.fetch(roleId);
+	const role: Role | null = await interaction.guild.roles.fetch(roleId);
+
+	if (!role) throw new Error(localizer._("Role not found!"));
 
 	switch (mode) {
 		case "toggle":
@@ -76,7 +74,7 @@ async function autoroleButton(interaction, { createEmbed }) {
 			} else {
 				await interaction.member.roles.add(roleId);
 				embed.setDescription(localizer.__("You now have the [[0]] role.", { placeholders: [role.name] }));
-			};
+			}
 			break;
 
 		case "addonly":
